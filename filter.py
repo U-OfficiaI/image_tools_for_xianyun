@@ -2,15 +2,18 @@ import hashlib
 import os
 import shutil
 
-class md5_check:
+class fliter:
+    '''
+    通过对图片的md5值进行对比来筛选重复的图片
+    '''
     gallery_path = ''
     output_path = '' # 约定上一个程序还原的图片输出的位置为output_path
     md5_record_file_name = 'md5 record.txt' # 该文件位于gallery_path内
     duplicate_images_floder_name = 'duplicate images' # 该文件夹位于output_path内
 
-    def __init__(self, gallery_path, output_path):
-        self.gallery_path = gallery_path
+    def __init__(self, output_path, gallery_path):
         self.output_path = output_path
+        self.gallery_path = gallery_path
 
     def do(self):
         # 获取gallery中所有图片的MD5值

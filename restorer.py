@@ -2,12 +2,17 @@ import json
 import base64
 import os
 import datetime
-import re
 
-class json2image:
+class restorer:
+    '''
+    cache --> json --> image
+    在各项check_files方法中，依据不同浏览器缓存文件的特点，逐一读取缓存文件，对合适的缓存文件进行 cache --> json 的转换
+    随后立即调用json_2_image_output方法完成 json --> image
+    '''
+
     cache_folder_path = ''
     output_folder_path = ''
-    min_file_size = 1000
+    
     # TODO
     # 1.根据cache_folder_path，读取路径下的所有文件
     # 2.读取这些文件，从中筛选能够还原为图片的数据
