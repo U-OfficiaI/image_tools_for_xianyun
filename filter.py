@@ -60,6 +60,7 @@ class fliter:
             for line in f:
                 path, md5 = line.strip().split("\t")
                 md5_image_dict[md5] = path  # 以MD5值为键，路径为值，读取md5_image_dict
+        os.remove(record_file_path)
         return md5_image_dict
 
     def find_and_move_duplicates(self, md5_image_dict):
